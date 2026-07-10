@@ -5,7 +5,6 @@ from flask import Flask, jsonify, send_from_directory, request
 
 app = Flask(__name__)
 
-# Function to load API key from .env file
 def load_openrouter_key():
     if os.path.exists('.env'):
         with open('.env', 'r', encoding='utf-8') as f:
@@ -23,46 +22,37 @@ def load_openrouter_key():
                         return val
     return None
 
-# Serve index.html at root
 @app.route('/')
 def index():
     return send_from_directory('.', 'index.html')
 
-# Serve styles.css
 @app.route('/styles.css')
 def styles():
     return send_from_directory('.', 'styles.css')
 
-# Serve main.js
 @app.route('/main.js')
 def main_js():
     return send_from_directory('.', 'main.js')
 
-# Serve files from assets directory
 @app.route('/assets/<path:filename>')
 def serve_assets(filename):
     return send_from_directory('assets', filename)
 
-# Dynamic network data API endpoint
 @app.route('/api/network')
 def get_network():
-    # 1. Generate Hubs / Major Cities
     major_nodes = [
-        # North America
         { "id": "maj_0", "x": 220, "y": 180, "name": "New York Hub (USA)", "type": "land", "status": "Operational", "load": "94.2%" },
         { "id": "maj_1", "x": 150, "y": 195, "name": "Los Angeles Hub (USA)", "type": "land", "status": "Operational", "load": "87.5%" },
         { "id": "maj_2", "x": 235, "y": 165, "name": "Toronto Terminal (Canada)", "type": "land", "status": "Operational", "load": "79.1%" },
         { "id": "maj_3", "x": 200, "y": 230, "name": "Mexico City Hub (Mexico)", "type": "land", "status": "Operational", "load": "91.8%" },
         { "id": "maj_4", "x": 140, "y": 150, "name": "Vancouver Sector (Canada)", "type": "land", "status": "Operational", "load": "62.4%" },
         
-        # South America
         { "id": "maj_5", "x": 350, "y": 360, "name": "Rio de Janeiro Hub (Brazil)", "type": "land", "status": "Operational", "load": "88.1%" },
         { "id": "maj_6", "x": 320, "y": 410, "name": "Buenos Aires Hub (Argentina)", "type": "land", "status": "Operational", "load": "85.2%" },
         { "id": "maj_7", "x": 270, "y": 320, "name": "Lima Junction (Peru)", "type": "land", "status": "Operational", "load": "74.0%" },
         { "id": "maj_8", "x": 275, "y": 275, "name": "Bogota Sector (Colombia)", "type": "land", "status": "Operational", "load": "81.9%" },
         { "id": "maj_9", "x": 300, "y": 340, "name": "Santiago Sector (Chile)", "type": "land", "status": "Operational", "load": "69.5%" },
         
-        # Europe
         { "id": "maj_10", "x": 485, "y": 150, "name": "London Terminal (UK)", "type": "land", "status": "Max Capacity", "load": "98.7%" },
         { "id": "maj_11", "x": 495, "y": 160, "name": "Paris Terminal (France)", "type": "land", "status": "Operational", "load": "92.3%" },
         { "id": "maj_12", "x": 515, "y": 155, "name": "Berlin Hub (Germany)", "type": "land", "status": "Operational", "load": "89.6%" },
@@ -71,14 +61,12 @@ def get_network():
         { "id": "maj_15", "x": 535, "y": 145, "name": "Warsaw Station (Poland)", "type": "land", "status": "Operational", "load": "77.4%" },
         { "id": "maj_16", "x": 475, "y": 175, "name": "Madrid Sector (Spain)", "type": "land", "status": "Operational", "load": "81.2%" },
         
-        # Africa
         { "id": "maj_17", "x": 560, "y": 215, "name": "Cairo Terminal (Egypt)", "type": "land", "status": "Operational", "load": "93.4%" },
         { "id": "maj_18", "x": 510, "y": 290, "name": "Lagos Hub (Nigeria)", "type": "land", "status": "Operational", "load": "76.4%" },
         { "id": "maj_19", "x": 565, "y": 385, "name": "Johannesburg Terminal (South Africa)", "type": "land", "status": "Operational", "load": "88.9%" },
         { "id": "maj_20", "x": 580, "y": 310, "name": "Nairobi Junction (Kenya)", "type": "land", "status": "Operational", "load": "82.0%" },
         { "id": "maj_21", "x": 480, "y": 220, "name": "Casablanca Station (Morocco)", "type": "land", "status": "Operational", "load": "71.5%" },
         
-        # Asia
         { "id": "maj_22", "x": 835, "y": 190, "name": "Tokyo Hub (Japan)", "type": "land", "status": "Operational", "load": "96.5%" },
         { "id": "maj_23", "x": 790, "y": 170, "name": "Beijing Terminal (China)", "type": "land", "status": "Operational", "load": "94.8%" },
         { "id": "maj_24", "x": 805, "y": 195, "name": "Shanghai Hub (China)", "type": "land", "status": "Operational", "load": "95.2%" },
@@ -90,12 +78,10 @@ def get_network():
         { "id": "maj_30", "x": 820, "y": 175, "name": "Seoul Station (South Korea)", "type": "land", "status": "Operational", "load": "91.2%" },
         { "id": "maj_31", "x": 760, "y": 210, "name": "Bangkok Terminal (Thailand)", "type": "land", "status": "Operational", "load": "82.7%" },
         
-        # Oceania
         { "id": "maj_32", "x": 885, "y": 400, "name": "Sydney Hub (Australia)", "type": "land", "status": "Operational", "load": "82.0%" },
         { "id": "maj_33", "x": 870, "y": 415, "name": "Melbourne Terminal (Australia)", "type": "land", "status": "Operational", "load": "79.3%" },
         { "id": "maj_34", "x": 925, "y": 420, "name": "Auckland Sector (New Zealand)", "type": "land", "status": "Operational", "load": "71.4%" },
         
-        # Subsea Oceanic Nexus Cities (Fake Ocean Nodes)
         { "id": "maj_35", "x": 380, "y": 220, "name": "Mid-Atlantic Subsea Delta", "type": "ocean", "status": "Operational", "load": "62.4%", "isOceanCity": True },
         { "id": "maj_36", "x": 90, "y": 290, "name": "Pacific Abyssal Sector 9", "type": "ocean", "status": "Operational", "load": "48.9%", "isOceanCity": True },
         { "id": "maj_37", "x": 500, "y": 460, "name": "Southern Ocean Trench Node", "type": "ocean", "status": "Operational", "load": "33.2%", "isOceanCity": True },
@@ -105,7 +91,6 @@ def get_network():
         { "id": "maj_41", "x": 740, "y": 330, "name": "Java Trench Abyssal Sector", "type": "ocean", "status": "Operational", "load": "41.6%", "isOceanCity": True },
         { "id": "maj_42", "x": 290, "y": 240, "name": "Caribbean Basin Terminal", "type": "ocean", "status": "Operational", "load": "67.3%", "isOceanCity": True },
         
-        # Sky Elevators & Atmospheric Ports
         { "id": "maj_43", "x": 180, "y": 110, "name": "Rocky Mountain Sky Elevator (USA)", "type": "sky", "status": "Operational", "load": "91.0%" },
         { "id": "maj_44", "x": 690, "y": 150, "name": "Himalayan Peak Elevator (Nepal)", "type": "sky", "status": "Operational", "load": "95.6%" },
         { "id": "maj_45", "x": 580, "y": 220, "name": "East African Sky Port (Kenya)", "type": "sky", "status": "Operational", "load": "80.2%" },
@@ -121,7 +106,6 @@ def get_network():
     ]
     types = ["land", "ocean", "sky"]
 
-    # Generate 50 random major nodes dynamically
     for i in range(50):
         rx = random.random() * 920 + 40
         ry = random.random() * 400 + 40
@@ -140,7 +124,6 @@ def get_network():
             "isOceanCity": is_oc
         })
 
-    # 2. Pre-generate 2000 minor nodes (LOD points)
     minor_nodes = []
     for i in range(2000):
         minor_nodes.append({
@@ -152,9 +135,7 @@ def get_network():
             "size": random.random() * 1.5 + 0.8
         })
 
-    # 3. Pre-generate connection routes
     routes = []
-    # Major-to-major connections
     for i in range(len(major_nodes)):
         count = random.randint(2, 5)
         for _ in range(count):
@@ -170,7 +151,6 @@ def get_network():
                     "minZoom": 1.0
                 })
 
-    # Minor-to-major or minor-to-minor connections
     for i in range(1100):
         n1 = random.choice(minor_nodes)
         n2 = random.choice(major_nodes) if random.random() > 0.4 else random.choice(minor_nodes)
@@ -190,7 +170,6 @@ def get_network():
         "routes": routes
     })
 
-# AI chat completion endpoint via OpenRouter
 @app.route('/api/chat', methods=['POST'])
 def chat():
     data = request.json or {}
