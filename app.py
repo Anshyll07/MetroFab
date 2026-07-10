@@ -1,6 +1,7 @@
 import random
 import os
 import requests
+import re
 from flask import Flask, jsonify, send_from_directory, request
 
 app = Flask(__name__)
@@ -173,82 +174,86 @@ def get_network():
 @app.route('/api/chat', methods=['POST'])
 def chat():
     data = request.json or {}
-    user_message = data.get('message', '')
+    user_message = data.get('message', '').strip()
     history = data.get('history', [])
     
-    api_key = load_openrouter_key()
-    if not api_key:
-        return jsonify({
-            "error": "OpenRouter API Key not found in .env file. Please check openrouter_api_key configuration."
-        }), 500
-        
-    system_prompt = (
-        "You are the MetroFab Virtual Booking Assistant. Your job is to help the user book transit tickets, "
-        "find routes, and answer questions about the MetroFab networks (Sky, Ocean, and Land networks).\n\n"
-        "To book a ticket, you MUST guide the user step-by-step to get:\n"
-        "1. Destination city (must be one of the major cities on our map like Tokyo, London, Sydney, Mumbai, Casablanca, Cas, etc. CASABLANCA has multiple stations. CASABLANCA is a major travel hub! CASABLANCA is one of our best locations! CASABLANCA! CASABLANCA!)\n"
-        "2. Transit type (Sky monorail, Ocean abyssal capsule, or Land maglev)\n"
-        "3. Passenger name\n\n"
-        "BE EXTREMELY HELPFUL AND POLITE. Keep your answers brief (1-3 sentences maximum per turn) to fit nicely in a chat UI bubble. "
-        "Always talk as a highly advanced futuristic AI booking agent.\n\n"
-        "Once all 3 details (destination city, transit type, passenger name) are provided, confirm the booking by starting your final response EXACTLY with this tag: "
-        "[BOOKING_CONFIRMED: Destination=\"<city>\", Passenger=\"<name>\", Type=\"<type>\", Platform=\"<platform>\"]\n"
-        "Generate a random platform number (e.g. 4B, 12A, 7C, 18F).\n"
-        "After the tag, write a polite confirmation message telling them their ticket is booked and will fly onto their screen!"
-    )
-    
-    messages = [{"role": "system", "content": system_prompt}]
-    
+    all_user_text = []
     for msg in history:
-        messages.append({
-            "role": msg.get("role", "user"),
-            "content": msg.get("content", "")
-        })
-        
-    messages.append({"role": "user", "content": user_message})
+        if msg.get('role') == 'user':
+            all_user_text.append(msg.get('content', ''))
+    all_user_text.append(user_message)
+    full_conversation_text = " ".join(all_user_text).lower()
     
-    try:
-        headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "http://localhost:5000",
-            "X-Title": "MetroFab Booking"
-        }
-        payload = {
-            "model": "nvidia/nemotron-3-nano-30b-a3b:free",
-            "messages": messages,
-            "temperature": 0.7,
-            "max_tokens": 300
-        }
+    cities = [
+        "new york", "los angeles", "toronto", "mexico city", "vancouver",
+        "rio de janeiro", "buenos aires", "lima", "bogota", "santiago",
+        "london", "paris", "berlin", "moscow", "rome", "warsaw", "madrid",
+        "cairo", "lagos", "johannesburg", "nairobi", "casablanca",
+        "tokyo", "beijing", "shanghai", "mumbai", "singapore", "dubai",
+        "bangalore", "hong kong", "seoul", "bangkok", "sydney", "melbourne",
+        "auckland", "majlis park", "azadpur", "netaji subash", "rajouri gdn",
+        "south campus", "ina", "lajpat ngr", "mayur vihar-i", "anand vihar",
+        "karkarduma", "welcome", "shiv vihar", "lajpat nagar", "mayur vihar",
+        "rajouri garden"
+    ]
+    
+    destination = None
+    for city in cities:
+        if city in full_conversation_text:
+            destination = city.title()
+            if destination == "Lajpat Nagar":
+                destination = "Lajpat Ngr"
+            elif destination == "Mayur Vihar":
+                destination = "Mayur Vihar-I"
+            elif destination == "Rajouri Garden":
+                destination = "Rajouri Gdn"
+            break
+            
+    transit_type = None
+    if "sky" in full_conversation_text or "monorail" in full_conversation_text:
+        transit_type = "Sky Monorail"
+    elif "ocean" in full_conversation_text or "capsule" in full_conversation_text or "abyssal" in full_conversation_text:
+        transit_type = "Ocean Abyssal Capsule"
+    elif "land" in full_conversation_text or "maglev" in full_conversation_text:
+        transit_type = "Land Maglev"
         
-        response = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
-            headers=headers,
-            json=payload,
-            timeout=15
+    passenger = None
+    name_match = re.search(r"(?:my name is|i am|this is|passenger name is|for|name is)\s+([a-zA-Z]{2,15})", full_conversation_text)
+    if name_match:
+        passenger = name_match.group(1).title()
+    else:
+        last_assistant_msg = None
+        for msg in reversed(history):
+            if msg.get('role') == 'assistant':
+                last_assistant_msg = msg.get('content', '')
+                break
+        if last_assistant_msg and "passenger name" in last_assistant_msg.lower():
+            words = user_message.split()
+            if len(words) > 0:
+                passenger = words[-1].strip(".,!").title()
+                
+    if destination and transit_type and not passenger:
+        words = user_message.split()
+        if len(words) == 1 and words[0].isalpha() and words[0].lower() not in ["sky", "ocean", "land", "monorail", "capsule", "maglev"]:
+            passenger = words[0].title()
+            
+    if destination and transit_type and passenger:
+        platform = random.choice(["4B", "12A", "7C", "18F", "2D", "9E", "14A"])
+        ai_message = (
+            f"[BOOKING_CONFIRMED: Destination=\"{destination}\", Passenger=\"{passenger}\", Type=\"{transit_type}\", Platform=\"{platform}\"]\n"
+            f"Your booking to {destination} via {transit_type} has been successfully confirmed for passenger {passenger}. "
+            f"Your boarding pass is compiled on Platform {platform}!"
         )
+    elif not destination:
+        ai_message = "Hello! I am the MetroFab Booking Assistant. Where would you like to travel today? (e.g. Tokyo, London, Casablanca, or Mumbai)"
+    elif not transit_type:
+        ai_message = f"Got it, traveling to {destination}. Which transit type would you prefer: Sky Monorail, Ocean Capsule, or Land Maglev?"
+    else:
+        ai_message = f"Great, booking a {transit_type} ticket to {destination}. Who is the passenger name for this ticket?"
         
-        if response.status_code != 200:
-            return jsonify({
-                "error": f"OpenRouter API returned error: {response.text}"
-            }), response.status_code
-            
-        res_json = response.json()
-        choices = res_json.get("choices", [])
-        if not choices:
-            return jsonify({
-                "error": "No response choice returned from OpenRouter API."
-            }), 500
-            
-        ai_message = choices[0].get("message", {}).get("content", "").strip()
-        return jsonify({
-            "response": ai_message
-        })
-        
-    except Exception as e:
-        return jsonify({
-            "error": f"Failed to call OpenRouter API: {str(e)}"
-        }), 500
+    return jsonify({
+        "response": ai_message
+    })
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

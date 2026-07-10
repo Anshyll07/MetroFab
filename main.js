@@ -3805,11 +3805,11 @@
 
       var modalHtml =
         '<div class="ai-modal-layout">' +
-        '<p class="ai-modal-desc font-mono">METROFAB AI CORE // ROUTING COMPLETED</p>' +
-        '<div style="background:#111115; border:1px solid rgba(255,255,255,0.05); padding:20px; display:flex; flex-direction:column; gap:12px;">' +
+        '<p class="ai-modal-desc font-mono" style="color:var(--text-2);">METROFAB SYSTEM // ROUTING COMPLETED</p>' +
+        '<div style="background:var(--panel-2); border:1px solid var(--line); padding:20px; display:flex; flex-direction:column; gap:12px; color:var(--ink);">' +
         '<div style="display:flex; justify-content:space-between; font-size:14px;">' +
         "<span>Route:</span>" +
-        '<strong style="color:#00f0ff;">' +
+        '<strong style="color:var(--accent);">' +
         fromSt +
         " ⇄ " +
         toSt +
@@ -3823,7 +3823,7 @@
         "</div>" +
         '<div style="display:flex; justify-content:space-between; font-size:14px;">' +
         "<span>Estimated Fare:</span>" +
-        '<strong style="color:#eab308;">₹' +
+        '<strong style="color:var(--accent);">₹' +
         fare +
         "</strong>" +
         "</div>" +
@@ -3835,7 +3835,7 @@
         "</div>" +
         "</div>" +
         '<div style="display:flex; flex-direction:column; gap:6px;">' +
-        '<label class="font-mono" style="font-size:11px; color:rgba(255,255,255,0.4);">PASSENGER NAME</label>' +
+        '<label class="font-mono" style="font-size:11px; color:var(--text-3);">PASSENGER NAME</label>' +
         '<input type="text" id="booking-passenger-name" class="ai-modal-input" placeholder="Enter passenger name" value="EDITH" />' +
         "</div>" +
         '<button type="button" class="ai-modal-btn" id="confirm-booking-btn">CONFIRM AND GENERATE PASS</button>' +
@@ -3909,15 +3909,15 @@
       } else if (feature === "ncmc") {
         contentHtml =
           '<div class="ai-modal-layout">' +
-          '<p class="ai-modal-desc font-mono">Verify balance, register card, and configure AI-predicted auto-topups.</p>' +
-          '<div style="background:#111115; border:1px solid rgba(255,255,255,0.05); padding:16px; display:flex; justify-content:space-between; align-items:center;">' +
+          '<p class="ai-modal-desc font-mono">Verify balance, register card, and configure auto-topups.</p>' +
+          '<div style="background:var(--panel-2); border:1px solid var(--line); padding:16px; display:flex; justify-content:space-between; align-items:center; color:var(--ink);">' +
           "<div>" +
-          '<span style="font-size:12px; color:rgba(255,255,255,0.4); display:block; letter-spacing:0.05em;">ACTIVE SERIAL</span>' +
-          '<strong style="font-size:12px; color:#fff;" id="ncmc-serial-val">NCMC-883921-IN</strong>' +
+          '<span style="font-size:12px; color:var(--text-3); display:block; letter-spacing:0.05em;">ACTIVE SERIAL</span>' +
+          '<strong style="font-size:12px; color:var(--ink);" id="ncmc-serial-val">NCMC-883921-IN</strong>' +
           "</div>" +
           '<div style="text-align:right;">' +
-          '<span style="font-size:12px; color:rgba(255,255,255,0.4); display:block; letter-spacing:0.05em;">CARD BALANCE</span>' +
-          '<strong style="font-size:16px; color:#00f0ff;" id="ncmc-balance-val">₹350.00</strong>' +
+          '<span style="font-size:12px; color:var(--text-3); display:block; letter-spacing:0.05em;">CARD BALANCE</span>' +
+          '<strong style="font-size:16px; color:var(--accent);" id="ncmc-balance-val">₹350.00</strong>' +
           "</div>" +
           "</div>" +
           '<div class="ai-modal-input-group">' +
@@ -3925,10 +3925,10 @@
           '<input type="text" id="ncmc-register-input" class="ai-modal-input" placeholder="Enter NCMC Card Serial Number" />' +
           "</div>" +
           '<div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">' +
-          '<button type="button" class="ai-modal-btn" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff;" id="ncmc-topup-btn">AUTO TOPUP (₹100)</button>' +
+          '<button type="button" class="ai-modal-btn" style="background:var(--panel-3); border:1px solid var(--line); color:var(--ink);" id="ncmc-topup-btn">AUTO TOPUP (₹100)</button>' +
           '<button type="button" class="ai-modal-btn" id="ncmc-register-btn">REGISTER CARD</button>' +
           "</div>" +
-          '<div id="ncmc-log" class="ai-modal-result font-mono" style="font-size:13px; color:#00e66e; text-align:center;"></div>' +
+          '<div id="ncmc-log" class="ai-modal-result font-mono" style="font-size:13px; color:#15803d; text-align:center;"></div>' +
           "</div>";
       } else if (feature === "train-time") {
         contentHtml =
@@ -3945,27 +3945,27 @@
           "</select>" +
           "</div>" +
           '<div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px;">' +
-          '<div style="background:#111115; border:1px solid rgba(255,255,255,0.05); padding:16px;">' +
-          '<span style="font-size:12px; color:rgba(255,255,255,0.4); display:block; margin-bottom:6px;">MAJLIS PARK BOUND</span>' +
-          '<div style="font-size:14px; color:#fff; display:flex; flex-direction:column; gap:4px;">' +
+          '<div style="background:var(--panel-2); border:1px solid var(--line); padding:16px; color:var(--ink);">' +
+          '<span style="font-size:12px; color:var(--text-3); display:block; margin-bottom:6px;">MAJLIS PARK BOUND</span>' +
+          '<div style="font-size:14px; color:var(--ink); display:flex; flex-direction:column; gap:4px;">' +
           "<span>First Train: <strong>06:00 AM</strong></span>" +
           "<span>Last Train: <strong>11:00 PM</strong></span>" +
           "</div>" +
           "</div>" +
-          '<div style="background:#111115; border:1px solid rgba(255,255,255,0.05); padding:16px;">' +
-          '<span style="font-size:12px; color:rgba(255,255,255,0.4); display:block; margin-bottom:6px;">SHIV VIHAR BOUND</span>' +
-          '<div style="font-size:14px; color:#fff; display:flex; flex-direction:column; gap:4px;">' +
+          '<div style="background:var(--panel-2); border:1px solid var(--line); padding:16px; color:var(--ink);">' +
+          '<span style="font-size:12px; color:var(--text-3); display:block; margin-bottom:6px;">SHIV VIHAR BOUND</span>' +
+          '<div style="font-size:14px; color:var(--ink); display:flex; flex-direction:column; gap:4px;">' +
           "<span>First Train: <strong>06:15 AM</strong></span>" +
           "<span>Last Train: <strong>11:10 PM</strong></span>" +
           "</div>" +
           "</div>" +
           "</div>" +
-          '<div id="tt-log" class="ai-modal-result font-mono" style="font-size:13px; color:rgba(255,255,255,0.4); text-align:center;">AI Core queries completed.</div>' +
+          '<div id="tt-log" class="ai-modal-result font-mono" style="font-size:13px; color:var(--text-2); text-align:center;">Queries completed.</div>' +
           "</div>";
       } else if (feature === "tickets") {
         contentHtml =
           '<div class="ai-modal-layout">' +
-          '<p class="ai-modal-desc font-mono">Compile dynamic QR single journey tickets using AI-validated encryption keys.</p>' +
+          '<p class="ai-modal-desc font-mono">Compile dynamic QR single journey tickets using validated encryption keys.</p>' +
           '<div class="ai-modal-input-group">' +
           "<label>FROM STATION</label>" +
           '<select id="t-from" class="ai-modal-input">' +
@@ -3992,7 +3992,7 @@
           "<label>PASSENGER NAME</label>" +
           '<input type="text" id="t-passenger" class="ai-modal-input" placeholder="Enter Passenger Name" value="EDITH" />' +
           "</div>" +
-          '<button type="button" class="ai-modal-btn" id="generate-qr-ticket-btn">COMPILE QR PASS (AI SECURE)</button>' +
+          '<button type="button" class="ai-modal-btn" id="generate-qr-ticket-btn">COMPILE QR PASS (SECURE ENCRYPTION)</button>' +
           '<div id="qr-results" class="ai-modal-result"></div>' +
           "</div>";
       } else if (feature === "tour-guide") {
@@ -4016,9 +4016,9 @@
         contentHtml =
           '<div class="ai-modal-layout">' +
           '<p class="ai-modal-desc font-mono">Book entry passes for the Delhi Metro Museum located at Patel Chowk.</p>' +
-          '<div style="background:#111115; border:1px solid rgba(255,255,255,0.05); padding:16px; display:flex; flex-direction:column; gap:8px;">' +
-          '<span style="font-size:13px; color:#fff; font-weight:600;">EXHIBITIONS CURRENTLY RUNNING</span>' +
-          '<ul style="font-size:14px; color:rgba(255,255,255,0.6); padding-left:16px; margin:0; display:flex; flex-direction:column; gap:4px;">' +
+          '<div style="background:var(--panel-2); border:1px solid var(--line); padding:16px; display:flex; flex-direction:column; gap:8px; color:var(--ink);">' +
+          '<span style="font-size:13px; color:var(--ink); font-weight:600;">EXHIBITIONS CURRENTLY RUNNING</span>' +
+          '<ul style="font-size:14px; color:var(--text-2); padding-left:16px; margin:0; display:flex; flex-direction:column; gap:4px;">' +
           "<li>History of Maglev Systems (Tunnel 3)</li>" +
           "<li>Delhi Metro Chronology: 2002-2026 (Galleries A-B)</li>" +
           "<li>Interactive Cabin Simulators (Room 12)</li>" +
@@ -4040,12 +4040,12 @@
       } else if (feature === "lost-found") {
         contentHtml =
           '<div class="ai-modal-layout">' +
-          '<p class="ai-modal-desc font-mono">Query retrieved items or register a claim on the AI-synchronized database.</p>' +
+          '<p class="ai-modal-desc font-mono">Query retrieved items or register a claim on the synchronized database.</p>' +
           '<div class="ai-modal-input-group">' +
           "<label>SEARCH KEYWORD</label>" +
           '<input type="text" id="lf-query" class="ai-modal-input" placeholder="e.g. Wallet, Keys, Phone, Bag" />' +
           "</div>" +
-          '<button type="button" class="ai-modal-btn" id="run-lf-search">QUERY LOST DATABASE (AI ENGINE)</button>' +
+          '<button type="button" class="ai-modal-btn" id="run-lf-search">QUERY LOST DATABASE (SYSTEM ENGINE)</button>' +
           '<div id="lf-results" class="ai-modal-result"></div>' +
           "</div>";
       } else if (feature === "advisory") {
@@ -4053,31 +4053,31 @@
           '<div class="ai-modal-layout">' +
           '<p class="ai-modal-desc font-mono">Real-time status analysis of line arteries and security protocols.</p>' +
           '<div id="advisory-loader" class="ai-inference-loader">' +
-          '<span class="font-mono" style="font-size:13px; color:#fff;">SCANNING SYSTEMS ARTERIES...</span>' +
+          '<span class="font-mono" style="font-size:13px; color:var(--ink);">SCANNING SYSTEMS ARTERIES...</span>' +
           '<div class="ai-loader-bar-wrap"><div class="ai-loader-bar" id="adv-bar"></div></div>' +
           "</div>" +
           '<div id="advisory-results" style="display:none; flex-direction:column; gap:12px;">' +
-          '<div style="background:#111115; border:1px solid rgba(255, 255, 255, 0.05); padding:16px; display:flex; flex-direction:column; gap:8px;">' +
+          '<div style="background:var(--panel-2); border:1px solid var(--line); padding:16px; display:flex; flex-direction:column; gap:8px; color:var(--ink);">' +
           '<div style="display:flex; justify-content:space-between; font-size:14px;">' +
           "<span>Line A (Pink Line):</span>" +
-          '<strong style="color:#00e66e;">OPERATIONAL // NORMAL</strong>' +
+          '<strong style="color:#16a34a;">OPERATIONAL // NORMAL</strong>' +
           "</div>" +
           '<div style="display:flex; justify-content:space-between; font-size:14px;">' +
           "<span>Line B (Blue Line):</span>" +
-          '<strong style="color:#00e66e;">OPERATIONAL // NORMAL</strong>' +
+          '<strong style="color:#16a34a;">OPERATIONAL // NORMAL</strong>' +
           "</div>" +
           '<div style="display:flex; justify-content:space-between; font-size:14px;">' +
           "<span>Line C (Yellow Line):</span>" +
-          '<strong style="color:#ffcc00;">SIGNAL FLUCTUATIONS // RUNNING OK</strong>' +
+          '<strong style="color:#ea580c;">SIGNAL FLUCTUATIONS // RUNNING OK</strong>' +
           "</div>" +
           "</div>" +
-          '<span style="font-size:13px; color:rgba(255,255,255,0.4); text-align:center; display:block;">AI Core analysis completed. 0 safety alerts active.</span>' +
+          '<span style="font-size:13px; color:var(--text-3); text-align:center; display:block;">System analysis completed. 0 safety alerts active.</span>' +
           "</div>" +
           "</div>";
       } else if (feature === "last-mile") {
         contentHtml =
           '<div class="ai-modal-layout">' +
-          '<p class="ai-modal-desc font-mono">AI-calculated availability of E-rickshaws, bike hubs, and feeder buses at stations.</p>' +
+          '<p class="ai-modal-desc font-mono">Calculated availability of E-rickshaws, bike hubs, and feeder buses at stations.</p>' +
           '<div class="ai-modal-input-group">' +
           "<label>CURRENT STATION</label>" +
           '<select id="lm-station" class="ai-modal-input">' +
@@ -4088,18 +4088,18 @@
             .join("") +
           "</select>" +
           "</div>" +
-          '<button type="button" class="ai-modal-btn" id="run-lm-query">FIND FEEDER TRANSIT (AI ENGINE)</button>' +
+          '<button type="button" class="ai-modal-btn" id="run-lm-query">FIND FEEDER TRANSIT (SYSTEM ENGINE)</button>' +
           '<div id="lm-results" class="ai-modal-result"></div>' +
           "</div>";
       } else if (feature === "carbonlite") {
         contentHtml =
           '<div class="ai-modal-layout">' +
-          '<p class="ai-modal-desc font-mono">Calculate your commute carbon offset details using AI comparative algorithms.</p>' +
+          '<p class="ai-modal-desc font-mono">Calculate your commute carbon offset details using comparative algorithms.</p>' +
           '<div class="ai-modal-input-group">' +
           "<label>COMMUTE TRIPS PER WEEK</label>" +
           '<input type="number" id="cl-trips" class="ai-modal-input" value="10" min="1" max="50" />' +
           "</div>" +
-          '<button type="button" class="ai-modal-btn" id="run-cl-calc">EVALUATE CO2 OFFSETS (AI CORE)</button>' +
+          '<button type="button" class="ai-modal-btn" id="run-cl-calc">EVALUATE CO2 OFFSETS (SYSTEM CORE)</button>' +
           '<div id="cl-results" class="ai-modal-result"></div>' +
           "</div>";
       }
@@ -4139,14 +4139,14 @@
             var duration = stops * 2.2;
 
             fcRes.innerHTML =
-              '<div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:16px; font-size:14px; display:flex; flex-direction:column; gap:8px;">' +
+              '<div style="background:var(--panel-2); border:1px solid var(--line); padding:16px; font-size:14px; display:flex; flex-direction:column; gap:8px; color:var(--ink);">' +
               "<span>Path duration: <strong>" +
               Math.ceil(duration) +
               " Minutes</strong></span>" +
               "<span>Total Stops: <strong>" +
               stops +
               " Interchange Stops</strong></span>" +
-              '<span style="font-size:13px; color:#00f0ff;">Calculated Fare: <strong>₹' +
+              '<span style="font-size:13px; color:var(--accent);">Calculated Fare: <strong>₹' +
               fare +
               "</strong></span>" +
               "</div>";
@@ -4172,7 +4172,7 @@
           var balEl = document.getElementById("ncmc-balance-val");
           var log = document.getElementById("ncmc-log");
           var currentVal = parseFloat(balEl.textContent.replace("₹", "")) || 0;
-          log.innerHTML = "Authorizing AI predictive topup request...";
+          log.innerHTML = "Authorizing topup request...";
           setTimeout(function () {
             var newVal = currentVal + 100;
             balEl.textContent = "₹" + newVal.toFixed(2);
@@ -4212,10 +4212,10 @@
               '<rect x="40" y="40" width="20" height="20" fill="#000" />' +
               "</svg>" +
               '<div style="text-align:center;">' +
-              '<strong style="font-size:14px; color:#00f0ff;" class="font-mono">' +
+              '<strong style="font-size:14px; color:var(--accent);" class="font-mono">' +
               passkey +
               "</strong>" +
-              '<span style="font-size:11px; color:rgba(255,255,255,0.4); display:block; margin-top:2px;">AI CRYPTO-VALIDATED PASS</span>' +
+              '<span style="font-size:11px; color:var(--text-3); display:block; margin-top:2px;">SECURE CRYPTO-VALIDATED PASS</span>' +
               "</div>" +
               '<div class="qr-ticket-details">' +
               '<div class="qr-ticket-detail-item"><span>PASSENGER</span><strong>' +
@@ -4244,18 +4244,18 @@
           setTimeout(function () {
             var attractions = {
               "MAJLIS PARK":
-                "Majlis Park Lake & Eco Walkways (0.8km). AI recommends early morning visits.",
+                "Majlis Park Lake & Eco Walkways (0.8km). System recommends early morning visits.",
               AZADPUR:
                 "Azadpur Fruit Sanctuary - Asia\'s largest distribution hub (0.5km). Recommendation score: 8.8.",
               "NETAJI SUBASH PLACE":
-                "NSP Bento Culinary Plaza & Shopping Arcades (0.1km). AI recommends local snacks.",
+                "NSP Bento Culinary Plaza & Shopping Arcades (0.1km). System recommends local snacks.",
               "RAJOURI GARDEN":
                 "Rajouri Street Food Hub & Electronic District (0.3km). Match confidence: 92%.",
               "SOUTH CAMPUS":
                 "Durgabai Deshmukh Ridge Sanctuary Trail (0.6km). Recommends afternoon walks.",
               INA: "Dilli Haat Crafts Conservatory & Culinary Hub (0.1km). Exquisite handicraft matches.",
               "LAJPAT NAGAR":
-                "Central Market Textile District & Local Hub (0.2km). AI recommends matching fabrics.",
+                "Central Market Textile District & Local Hub (0.2km). System recommends matching fabrics.",
               "MAYUR VIHAR-I":
                 "Sanjay Lake Wetlands & Boating Pier (0.7km). Highly recommended for photography.",
               "ANAND VIHAR": "Vikas Marg East Terminal Plazas (0.4km). Match score: 7.9.",
@@ -4270,11 +4270,11 @@
               "Historical Crafts Bazaar & local heritage points (within 1km).";
 
             tgRes.innerHTML =
-              '<div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:16px; font-size:14px; display:flex; flex-direction:column; gap:8px;">' +
-              '<span style="font-size:12px; color:#a855f7;">AI CORE TOUR ADVISOR FOR ' +
+              '<div style="background:var(--panel-2); border:1px solid var(--line); padding:16px; font-size:14px; display:flex; flex-direction:column; gap:8px; color:var(--ink);">' +
+              '<span style="font-size:12px; color:var(--accent); font-weight:600;">TOUR ADVISOR FOR ' +
               station +
               ":</span>" +
-              '<span style="color:#fff;">' +
+              '<span>' +
               desc +
               "</span>" +
               "</div>";
@@ -4290,14 +4290,14 @@
           setTimeout(function () {
             var total = count * 20;
             musRes.innerHTML =
-              '<div style="background:#111115; border:1px solid rgba(0,230,110,0.2); padding:16px; font-size:14px; text-align:center; display:flex; flex-direction:column; gap:6px;">' +
-              '<span style="color:#00e66e; font-weight:600;">MUSEUM PASS RESERVED</span>' +
-              '<span style="color:#fff;">Date: <strong>' +
+              '<div style="background:var(--panel-2); border:1px solid var(--line); padding:16px; font-size:14px; text-align:center; display:flex; flex-direction:column; gap:6px; color:var(--ink);">' +
+              '<span style="color:#16a34a; font-weight:600;">MUSEUM PASS RESERVED</span>' +
+              '<span>Date: <strong>' +
               date +
               "</strong> | Tickets: <strong>" +
               count +
               "</strong></span>" +
-              '<span style="font-size:12px; color:#fff;">Paid: <strong>₹' +
+              '<span style="font-size:12px; color:var(--text-2);">Paid: <strong>₹' +
               total +
               "</strong></span>" +
               "</div>";
@@ -4315,7 +4315,7 @@
 
           lfRes.innerHTML =
             '<div class="ai-inference-loader">' +
-            '<span class="font-mono" style="font-size:12px;">AI DATABASE MATCHING CROSS-REF...</span>' +
+            '<span class="font-mono" style="font-size:12px; color:var(--ink);">DATABASE MATCHING CROSS-REF...</span>' +
             '<div class="ai-loader-bar-wrap"><div class="ai-loader-bar"></div></div>' +
             "</div>";
 
@@ -4339,18 +4339,18 @@
               var matchesHtml = matches
                 .map(function (m) {
                   return (
-                    '<div style="background:rgba(0,230,110,0.03); border:1px solid rgba(0,230,110,0.2); padding:10px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">' +
+                    '<div style="background:var(--panel-2); border:1px solid var(--line); padding:10px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; color:var(--ink);">' +
                     "<div>" +
-                    '<strong style="color:#00e66e;">' +
+                    '<strong style="color:var(--accent);">' +
                     m.item.toUpperCase() +
                     "</strong>" +
-                    '<span style="font-size:12px; color:rgba(255,255,255,0.4); display:block;">Found at ' +
+                    '<span style="font-size:12px; color:var(--text-3); display:block;">Found at ' +
                     m.station +
                     " on " +
                     m.date +
                     "</span>" +
                     "</div>" +
-                    '<span class="font-mono" style="font-size:13px; color:#fff;">' +
+                    '<span class="font-mono" style="font-size:13px; color:var(--ink);">' +
                     m.id +
                     "</span>" +
                     "</div>"
@@ -4358,14 +4358,14 @@
                 })
                 .join("");
               lfRes.innerHTML =
-                '<span style="font-size:12px; color:rgba(255,255,255,0.4); display:block; margin-bottom:8px;">AI ENGINE FOUND ' +
+                '<span style="font-size:12px; color:var(--text-3); display:block; margin-bottom:8px;">DATABASE FOUND ' +
                 matches.length +
                 " MATCHES:</span>" +
                 matchesHtml;
             } else {
               lfRes.innerHTML =
-                '<div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:16px; text-align:center;">' +
-                '<span style="color:rgba(255,255,255,0.5);">No match found in current AI catalog. Your report has been logged.</span>' +
+                '<div style="background:var(--panel-2); border:1px solid var(--line); padding:16px; text-align:center; color:var(--ink);">' +
+                '<span style="color:var(--text-2);">No match found in current catalog. Your report has been logged.</span>' +
                 "</div>";
             }
           }, 1500);
@@ -4384,7 +4384,7 @@
 
           lmRes.innerHTML =
             '<div class="ai-inference-loader">' +
-            '<span class="font-mono" style="font-size:12px;">AI ETAS COMPILING...</span>' +
+            '<span class="font-mono" style="font-size:12px; color:var(--ink);">ETAS COMPILING...</span>' +
             '<div class="ai-loader-bar-wrap"><div class="ai-loader-bar"></div></div>' +
             "</div>";
 
@@ -4393,8 +4393,8 @@
             var cycles = Math.floor(Math.random() * 15) + 5;
 
             lmRes.innerHTML =
-              '<div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:16px; font-size:14px; display:flex; flex-direction:column; gap:8px;">' +
-              '<span style="font-size:12px; color:#ff007f;">FEEDER STATUS FOR ' +
+              '<div style="background:var(--panel-2); border:1px solid var(--line); padding:16px; font-size:14px; display:flex; flex-direction:column; gap:8px; color:var(--ink);">' +
+              '<span style="font-size:12px; color:var(--accent); font-weight:600;">FEEDER STATUS FOR ' +
               station +
               ":</span>" +
               "<span>E-Rickshaws nearby: <strong>" +
@@ -4414,7 +4414,7 @@
 
           clRes.innerHTML =
             '<div class="ai-inference-loader">' +
-            '<span class="font-mono" style="font-size:12px;">EVALUATING ECO COMMUTE GRAPH...</span>' +
+            '<span class="font-mono" style="font-size:12px; color:var(--ink);">EVALUATING ECO COMMUTE GRAPH...</span>' +
             '<div class="ai-loader-bar-wrap"><div class="ai-loader-bar"></div></div>' +
             "</div>";
 
@@ -4423,15 +4423,15 @@
             var trees = co2 * 0.05;
 
             clRes.innerHTML =
-              '<div style="background:#111115; border:1px solid rgba(0,230,110,0.2); padding:16px; font-size:14px; display:flex; flex-direction:column; gap:8px;">' +
-              '<span style="color:#4ade80; font-weight:600;">CARBON SAVINGS COMPARATIVE</span>' +
+              '<div style="background:var(--panel-2); border:1px solid var(--line); padding:16px; font-size:14px; display:flex; flex-direction:column; gap:8px; color:var(--ink);">' +
+              '<span style="color:#16a34a; font-weight:600;">CARBON SAVINGS COMPARATIVE</span>' +
               "<span>CO2 Prevented: <strong>" +
               co2.toFixed(2) +
               " kg / week</strong></span>" +
               "<span>Equivalent Trees Planted: <strong>" +
               trees.toFixed(3) +
               " trees</strong></span>" +
-              '<span style="font-size:12px; color:rgba(255,255,255,0.4);">Calculated relative to standard petrol hatchback emissions.</span>' +
+              '<span style="font-size:12px; color:var(--text-3);">Calculated relative to standard petrol hatchback emissions.</span>' +
               "</div>";
           }, 1500);
         });
