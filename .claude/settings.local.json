@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp styles.css /c/Users/HP/AppData/Local/Temp/claude/c--Users-HP-Desktop-try/748e352a-d166-4c74-96e8-e107e35fa03a/scratchpad/styles.css.bak)",
+      "Bash(sed -i '1876,2117d' styles.css)",
+      "Bash(sed -i '52,72d' styles.css)",
+      "Read(//c/Users/HP/AppData/Local/Temp/claude/c--Users-HP-Desktop-try/748e352a-d166-4c74-96e8-e107e35fa03a/scratchpad/**)",
+      "Bash(rm -f run-reduced.js reduced.js)",
+      "Bash(python -c ' *)",
+      "Bash(pip install *)",
+      "Bash(python -)",
+      "Bash(timeout 120 npm install --no-save --no-fund --no-audit puppeteer-core)"
+    ]
+  }
+}

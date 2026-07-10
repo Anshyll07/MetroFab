@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+  <title>MetroFab</title>
+  <meta name="description"
+    content="MetroFab is the world's first AI-powered subway network, combining neural routing, biophilic districts, and responsive passenger transits under Horizon Transit." />
+  <meta name="theme-color" content="#f1e7d1" />
+  <meta property="og:title" content="MetroFab" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description"
+    content="MetroFab is the world's first AI-powered subway network, combining neural routing, biophilic districts, and responsive passenger transits under Horizon Transit." />
+  <meta property="og:image" content="assets/metrotrain-final.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MetroFab" />
+  <meta name="twitter:description"
+    content="MetroFab is the world's first AI-powered subway network, combining neural routing, biophilic districts, and responsive passenger transits under Horizon Transit." />
+  <meta name="twitter:image" content="assets/metrotrain-final.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Inter+Tight:wght@300;400;500;600&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Rammetto+One&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="nav" id="nav">
+    <div class="nav__frost" aria-hidden="true">
+      <span class="nav__frost-band nav__frost-band--1"></span>
+      <span class="nav__frost-band nav__frost-band--2"></span>
+      <span class="nav__frost-band nav__frost-band--3"></span>
+      <span class="nav__frost-band nav__frost-band--4"></span>
+    </div>
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top" aria-label="MetroFab home">
+        <span class="nav__logo" aria-hidden="true">
+          <span class="nav__logo-chip" aria-hidden="true"></span>
+          <img class="nav__logo-t" src="assets/logo-mark-ink.png" alt="" width="471" height="275" />
+          <span class="nav__logo-rest-track">
+            <img class="nav__logo-rest" src="assets/logo-wordmark-ink.png" alt="" width="851" height="92" />
+          </span>
+        </span>
+      </a>
+      <nav class="nav__actions" aria-label="Primary">
+        <a class="nav__link" href="#scaling"><span class="cta__full">Book Ticket</span><span
+            class="cta__mob">Book</span></a>
+        <a class="nav__link" href="#departures"><span class="cta__full">Know Status</span><span
+            class="cta__mob">Status</span></a>
+        <a class="nav__link" href="#kardashev"><span class="cta__full">Metro Details</span><span
+            class="cta__mob">Details</span></a>
+        <a class="nav__link" href="#about"><span class="cta__full">Showcase Metro</span><span
+            class="cta__mob">Showcase</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="hero" id="hero">
+      <canvas class="hero__grid-fx" aria-hidden="true"></canvas>
+      <div class="hero__fade" aria-hidden="true"></div>
+      <div class="container">
+        <h1 class="hero__title">
+          <span class="hero__line">Horizon Transit is launching</span>
+          <span class="hero__line"><em class="hero__title--hi">the most advanced urban transport ever</em></span>
+          <span class="hero__line">— combining neural routing, biophilic</span>
+          <span class="hero__line">districts, and responsive carriages.</span>
+        </h1>
+        <div class="hero__actions hero__seq">
+          <a class="link-cta link-cta--fill" href="#kardashev"><span class="cta__full">View Telemetry</span><span
+              class="cta__mob">Telemetry</span></a>
+          <a class="link-cta" href="mailto:contact@metrofab.org"><span class="cta__full">Submit Design
+              Concept</span><span class="cta__mob">Apply</span></a>
+        </div>
+        <div class="hero__partners hero__seq">
+          <div class="logos" style="
+                height: auto;
+                font-family: var(--chip);
+                font-size: 11px;
+                letter-spacing: 0.15em;
+                color: var(--text-3);
+                display: flex;
+                gap: 40px;
+                align-items: center;
+              ">
+            <span>OCEAN DISTRICT</span>
+            <span>SKY DISTRICT</span>
+            <span>INNOVATION DISTRICT</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement-sec">
+      <div class="container">
+        <p class="statement reveal">
+          MetroFab will close the gap between today's rigid urban grid and tomorrow's expansion
+          —<br />a journey written in movement.
+        </p>
+      </div>
+    </section>
+
+    <section class="block scaling" id="scaling" style="
+          padding: 0;
+          min-height: 100vh;
+          position: relative;
+          overflow: hidden;
+        " data-grid-lines="edge">
+      <div class="ticket-3d angled-ticket-wrap" id="static-ticket-display">
+        <img alt="Angled Ticket" class="angled-ticket" src="assets/ticket.png" />
+      </div>
+
+      <div class="booking-content-wrap">
+        <header class="booking-portal-header">
+          <p class="kicker-portal">Reservation Portal</p>
+          <h1 class="portal-title">Book your Continental<br />Transit Pass</h1>
+        </header>
+
+        <div class="booking-portal-main">
+          <div class="booking-layout-grid">
+            <div class="journey-planner-card">
+              <div class="journey-planner-card__header">
+                <div class="planner-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                  </svg>
+                </div>
+                <h3 class="journey-planner-card__title">Plan Your Journey</h3>
+              </div>
+
+              <div class="interactive-map-link-row">
+                <span>Track your train live on the
+                  <a href="#kardashev" class="interactive-map-link">Metro Details hub</a></span>
+              </div>
+
+              <form class="journey-planner-form" id="journey-planner-form">
+                <div class="planner-field">
+                  <label class="planner-field__label font-mono">FROM</label>
+                  <div class="planner-select-wrap">
+                    <select id="journey-from-station" class="planner-select">
+                      <option value="MAJLIS PARK">MAJLIS PARK</option>
+                      <option value="AZADPUR">AZADPUR</option>
+                      <option value="NETAJI SUBASH">NETAJI SUBASH</option>
+                      <option value="RAJOURI GDN">RAJOURI GDN</option>
+                      <option value="SOUTH CAMPUS">SOUTH CAMPUS</option>
+                      <option value="INA">INA</option>
+                      <option value="LAJPAT NGR">LAJPAT NGR</option>
+                      <option value="MAYUR VIHAR-I">MAYUR VIHAR-I</option>
+                      <option value="ANAND VIHAR">ANAND VIHAR</option>
+                      <option value="KARKARDUMA">KARKARDUMA</option>
+                      <option value="WELCOME">WELCOME</option>
+                      <option value="SHIV VIHAR">SHIV VIHAR</option>
+                    </select>
+                    <span class="planner-select-arrow">▼</span>
+                  </div>
+                </div>
+
+                <div class="planner-field">
+                  <label class="planner-field__label font-mono">TO</label>
+                  <div class="planner-select-wrap">
+                    <select id="journey-to-station" class="planner-select">
+                      <option value="SHIV VIHAR">SHIV VIHAR</option>
+                      <option value="MAJLIS PARK">MAJLIS PARK</option>
+                      <option value="AZADPUR">AZADPUR</option>
+                      <option value="NETAJI SUBASH">NETAJI SUBASH</option>
+                      <option value="RAJOURI GDN">RAJOURI GDN</option>
+                      <option value="SOUTH CAMPUS">SOUTH CAMPUS</option>
+                      <option value="INA">INA</option>
+                      <option value="LAJPAT NGR">LAJPAT NGR</option>
+                      <option value="MAYUR VIHAR-I">MAYUR VIHAR-I</option>
+                      <option value="ANAND VIHAR">ANAND VIHAR</option>
+                      <option value="KARKARDUMA">KARKARDUMA</option>
+                      <option value="WELCOME">WELCOME</option>
+                    </select>
+                    <span class="planner-select-arrow">▼</span>
+                  </div>
+                </div>
+
+                <div class="planner-field leaving-row">
+                  <label class="planner-field__label font-mono">LEAVING</label>
+                  <div class="leaving-options">
+                    <button class="leaving-now-btn active" type="button" id="leaving-now-btn">
+                      Now
+                    </button>
+                    <button class="change-time-btn" type="button" id="change-time-btn">
+                      Change Time
+                    </button>
+                  </div>
+                </div>
+
+                <button type="submit" class="show-route-fare-btn font-mono">
+                  SHOW ROUTE & FARE
+                </button>
+              </form>
+            </div>
+
+            <div class="features-planner-container">
+              <div style="display: flex; justify-content: space-between; align-items: center">
+                <h4 class="features-planner-title font-mono" style="margin: 0">
+                  TRANSIT SERVICES HUB
+                </h4>
+                <div class="terminal-wallet" style="position: relative">
+                  <button class="wallet-trigger-btn" type="button" id="wallet-trigger" style="
+                        padding: 8px 14px;
+                        font-size: 12px;
+                        border-radius: 2px;
+                        background: var(--panel-2);
+                        border-color: rgba(26, 20, 16, 0.12);
+                      ">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 12V7H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2" />
+                      <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" />
+                      <path d="M18 12a2 2 0 0 0 0 4h4v-4z" />
+                    </svg>
+                    <span id="wallet-count">Passes (0)</span>
+                    <span class="wallet-arrow" style="font-size: 7px">▼</span>
+                  </button>
+                  <div class="wallet-dropdown" id="wallet-dropdown" style="
+                        background: var(--panel);
+                        border-color: rgba(26, 20, 16, 0.12);
+                        border-radius: 2px;
+                        box-shadow: none;
+                      ">
+                    <div class="wallet-empty">No active passes</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="booking-features-grid">
+                <button class="feature-card line-pink" type="button" data-feature="fare-calculator">
+                  <span class="feature-card__corner tl"></span>
+                  <span class="feature-card__corner tr"></span>
+                  <span class="feature-card__corner bl"></span>
+                  <span class="feature-card__corner br"></span>
+                  <div class="feature-card__content">
+                    <div class="feature-card__icon text-pink">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                      </svg>
+                    </div>
+                    <span class="feature-card__title">Fare Calculator</span>
+                  </div>
+                </button>
+
+                <button class="feature-card line-magenta" type="button" data-feature="ncmc">
+                  <span class="feature-card__corner tl"></span>
+                  <span class="feature-card__corner tr"></span>
+                  <span class="feature-card__corner bl"></span>
+                  <span class="feature-card__corner br"></span>
+                  <div class="feature-card__content">
+                    <div class="feature-card__icon text-magenta">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
+                        <line x1="2" y1="10" x2="22" y2="10" />
+                      </svg>
+                    </div>
+                    <span class="feature-card__title">Common Mobility Card</span>
+                  </div>
+                </button>
+
+                <button class="feature-card line-yellow" type="button" data-feature="train-time">
+                  <span class="feature-card__corner tl"></span>
+                  <span class="feature-card__corner tr"></span>
+                  <span class="feature-card__corner bl"></span>
+                  <span class="feature-card__corner br"></span>
+                  <div class="feature-card__content">
+                    <div class="feature-card__icon text-yellow">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                      </svg>
+                    </div>
+                    <span class="feature-card__title">First/Last Train Time</span>
+                  </div>
+                </button>
+
+                <button class="feature-card line-cyan" type="button" data-feature="tickets">
+                  <span class="feature-card__corner tl"></span>
+                  <span class="feature-card__corner tr"></span>
+                  <span class="feature-card__corner bl"></span>
+                  <span class="feature-card__corner br"></span>
+                  <div class="feature-card__content">
+                    <div class="feature-card__icon text-cyan">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <rect x="3" y="4" width="18" height="16" rx="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                    </div>
+                    <span class="feature-card__title">Tickets / QR Pass</span>
+                  </div>
+                </button>
+
+                <button class="feature-card line-purple" type="button" data-feature="tour-guide">
+                  <span class="feature-card__corner tl"></span>
+                  <span class="feature-card__corner tr"></span>
+                  <span class="feature-card__corner bl"></span>
+                  <span class="feature-card__corner br"></span>
+                  <div class="feature-card__content">
+                    <div class="feature-card__icon text-purple">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
+                        <line x1="9" y1="3" x2="9" y2="18" />
+                        <line x1="15" y1="6" x2="15" y2="21" />
+                      </svg>
+                    </div>
+                    <span class="feature-card__title">AI Tour Guide</span>
+                  </div>
+                </button>
+
+                <button class="feature-card line-orange" type="button" data-feature="museum">
+                  <span class="feature-card__corner tl"></span>
+                  <span class="feature-card__corner tr"></span>
+                  <span class="feature-card__corner bl"></span>
+                  <span class="feature-card__corner br"></span>
+                  <div class="feature-card__content">
+                    <div class="feature-card__icon text-orange">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M4 19v2h16v-2M4 9h16M4 5h16M3 9v10M21 9v10M12 2L2 5v4h20V5z" />
+                      </svg>
+                    </div>
+                    <span class="feature-card__title">Metro Museum</span>
+                  </div>
+                </button>
+
+                <button class="feature-card line-green" type="button" data-feature="lost-found">
+                  <span class="feature-card__corner tl"></span>
+                  <span class="feature-card__corner tr"></span>
+                  <span class="feature-card__corner bl"></span>
+                  <span class="feature-card__corner br"></span>
+                  <div class="feature-card__content">
+                    <div class="feature-card__icon text-green">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                      </svg>
+                    </div>
+                    <span class="feature-card__title">Lost & Found</span>
+                  </div>
+                </button>
+
+                <button class="feature-card line-blue" type="button" data-feature="advisory">
+                  <span class="feature-card__corner tl"></span>
+                  <span class="feature-card__corner tr"></span>
+                  <span class="feature-card__corner bl"></span>
+                  <span class="feature-card__corner br"></span>
+                  <div class="feature-card__content">
+                    <div class="feature-card__icon text-blue">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path
+                          d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                        <line x1="12" y1="9" x2="12" y2="13" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                      </svg>
+                    </div>
+                    <span class="feature-card__title">Travel Advisory</span>
+                  </div>
+                </button>
+
+                <button class="feature-card line-pink" type="button" data-feature="last-mile">
+                  <span class="feature-card__corner tl"></span>
+                  <span class="feature-card__corner tr"></span>
+                  <span class="feature-card__corner bl"></span>
+                  <span class="feature-card__corner br"></span>
+                  <div class="feature-card__content">
+                    <div class="feature-card__icon text-pink">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <circle cx="5.5" cy="18.5" r="2.5" />
+                        <circle cx="18.5" cy="18.5" r="2.5" />
+                        <path d="M3 17h18M18.5 16V8.5L12 4.5l-6.5 4V16" />
+                      </svg>
+                    </div>
+                    <span class="feature-card__title">Last Mile Access</span>
+                  </div>
+                </button>
+
+                <button class="feature-card line-green-lite" type="button" data-feature="carbonlite">
+                  <span class="feature-card__corner tl"></span>
+                  <span class="feature-card__corner tr"></span>
+                  <span class="feature-card__corner bl"></span>
+                  <span class="feature-card__corner br"></span>
+                  <div class="feature-card__content">
+                    <div class="feature-card__icon text-green-lite">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                      </svg>
+                    </div>
+                    <span class="feature-card__title"><span class="badge-new font-mono">NEW</span> CarbonLite
+                      Travel</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block departures" id="departures" data-grid-lines="edge">
+      <div class="container">
+        <header class="block__head">
+          <p class="kicker">Departure Information</p>
+          <h2 class="h2 reveal">Every line, <em>every minute</em></h2>
+        </header>
+
+        <div class="solari reveal">
+          <div class="solari__chrome">
+            <div class="solari__ident font-mono">
+              <span class="solari__dot" aria-hidden="true"></span>
+              <span>METROFAB CENTRAL &middot; MAIN CONCOURSE</span>
+            </div>
+            <div class="solari__clock font-mono" id="solari-clock">--:--:--</div>
+          </div>
+
+          <div class="solari__head font-mono" aria-hidden="true">
+            <span>Time</span>
+            <span>Destination</span>
+            <span>Line</span>
+            <span>Plat</span>
+            <span>Status</span>
+          </div>
+
+          <div class="solari__rows" id="solari-rows"></div>
+
+          <p class="solari__legend font-mono">
+            <span class="solari__legend-item"><i class="solari__swatch is-ontime"></i>On time</span>
+            <span class="solari__legend-item"><i class="solari__swatch is-brd"></i>Boarding</span>
+            <span class="solari__legend-item"><i class="solari__swatch is-delay"></i>Delayed</span>
+          </p>
+        </div>
+
+        <p class="visually-hidden" id="solari-sr" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="telemetry-sec" id="kardashev" data-grid-lines="edge">
+      <div class="telemetry-grid-bg"></div>
+      <div class="container telemetry-container">
+        <header class="telemetry-header reveal">
+          <div class="telemetry-header__left">
+            <p class="kicker">Live Telemetry Feed</p>
+            <h2 class="h2">MetroFab Telemetry Hub</h2>
+            <p class="telemetry-coords">GRID COORDINATES: 40.7128° N, 74.0060° W</p>
+          </div>
+          <div class="telemetry-header__right">
+            <div class="telemetry-status-badge">
+              <span class="status-pulse-dot"></span>
+              <span class="status-badge-text">SYSTEM ONLINE</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="telemetry-layout">
+          <div class="telemetry-sidebar reveal">
+            <div class="sidebar-title-bar">
+              <h3 class="telemetry-subtitle">ACTIVE UNITS</h3>
+              <span class="telemetry-count font-mono">TOTAL: 6</span>
+            </div>
+            <div class="train-list-scrollable" id="train-list-container">
+              <div class="train-card active" data-id="TRN-082" data-speed="92" data-capacity="92" data-eta="03:42"
+                data-power="412" data-origin="Grand Plaza" data-dest="Neo-Central" data-line="Line A • Express"
+                data-status="ON TIME">
+                <div class="train-card__corner tl"></div>
+                <div class="train-card__corner tr"></div>
+                <div class="train-card__corner bl"></div>
+                <div class="train-card__corner br"></div>
+                <div class="train-card__indicator line-a"></div>
+                <div class="train-card__body">
+                  <div class="train-card__header">
+                    <span class="train-id">TRN-082</span>
+                    <span class="train-speed-mini font-mono">92 KM/H</span>
+                  </div>
+                  <div class="train-card__meta">
+                    <span class="train-route">Grand Plaza → Neo-Central</span>
+                    <span class="train-status on-time">ON TIME</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="train-card" data-id="TRN-104" data-speed="78" data-capacity="64" data-eta="05:15"
+                data-power="385" data-origin="North Port" data-dest="Sky Garden" data-line="Line B • Local"
+                data-status="+2 MIN">
+                <div class="train-card__corner tl"></div>
+                <div class="train-card__corner tr"></div>
+                <div class="train-card__corner bl"></div>
+                <div class="train-card__corner br"></div>
+                <div class="train-card__indicator line-b"></div>
+                <div class="train-card__body">
+                  <div class="train-card__header">
+                    <span class="train-id">TRN-104</span>
+                    <span class="train-speed-mini font-mono">78 KM/H</span>
+                  </div>
+                  <div class="train-card__meta">
+                    <span class="train-route">North Port → Sky Garden</span>
+                    <span class="train-status delay">+2 MIN</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="train-card" data-id="TRN-091" data-speed="95" data-capacity="88" data-eta="01:20"
+                data-power="440" data-origin="Terminal 1" data-dest="Terminal 4" data-line="Line C • Shuttle"
+                data-status="ON TIME">
+                <div class="train-card__corner tl"></div>
+                <div class="train-card__corner tr"></div>
+                <div class="train-card__corner bl"></div>
+                <div class="train-card__corner br"></div>
+                <div class="train-card__indicator line-c"></div>
+                <div class="train-card__body">
+                  <div class="train-card__header">
+                    <span class="train-id">TRN-091</span>
+                    <span class="train-speed-mini font-mono">95 KM/H</span>
+                  </div>
+                  <div class="train-card__meta">
+                    <span class="train-route">Terminal 1 → Terminal 4</span>
+                    <span class="train-status on-time">ON TIME</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="train-card" data-id="TRN-212" data-speed="110" data-capacity="75" data-eta="04:05"
+                data-power="495" data-origin="East Gate" data-dest="Neo-Central" data-line="Line D • Express"
+                data-status="ON TIME">
+                <div class="train-card__corner tl"></div>
+                <div class="train-card__corner tr"></div>
+                <div class="train-card__corner bl"></div>
+                <div class="train-card__corner br"></div>
+                <div class="train-card__indicator line-d"></div>
+                <div class="train-card__body">
+                  <div class="train-card__header">
+                    <span class="train-id">TRN-212</span>
+                    <span class="train-speed-mini font-mono">110 KM/H</span>
+                  </div>
+                  <div class="train-card__meta">
+                    <span class="train-route">East Gate → Neo-Central</span>
+                    <span class="train-status on-time">ON TIME</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="train-card" data-id="TRN-055" data-speed="45" data-capacity="98" data-eta="08:30"
+                data-power="310" data-origin="Old Town" data-dest="Grand Plaza" data-line="Line E • Local"
+                data-status="DELAY">
+                <div class="train-card__corner tl"></div>
+                <div class="train-card__corner tr"></div>
+                <div class="train-card__corner bl"></div>
+                <div class="train-card__corner br"></div>
+                <div class="train-card__indicator line-e"></div>
+                <div class="train-card__body">
+                  <div class="train-card__header">
+                    <span class="train-id">TRN-055</span>
+                    <span class="train-speed-mini font-mono">45 KM/H</span>
+                  </div>
+                  <div class="train-card__meta">
+                    <span class="train-route">Old Town → Grand Plaza</span>
+                    <span class="train-status delay">DELAY</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="train-card" data-id="TRN-118" data-speed="98" data-capacity="81" data-eta="02:50"
+                data-power="430" data-origin="South Hub" data-dest="Sector 7" data-line="Line F • Express"
+                data-status="ON TIME">
+                <div class="train-card__corner tl"></div>
+                <div class="train-card__corner tr"></div>
+                <div class="train-card__corner bl"></div>
+                <div class="train-card__corner br"></div>
+                <div class="train-card__indicator line-f"></div>
+                <div class="train-card__body">
+                  <div class="train-card__header">
+                    <span class="train-id">TRN-118</span>
+                    <span class="train-speed-mini font-mono">98 KM/H</span>
+                  </div>
+                  <div class="train-card__meta">
+                    <span class="train-route">South Hub → Sector 7</span>
+                    <span class="train-status on-time">ON TIME</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="telemetry-panel reveal">
+            <div class="telemetry-panel__inner">
+              <div class="telemetry-panel__corner tl"></div>
+              <div class="telemetry-panel__corner tr"></div>
+              <div class="telemetry-panel__corner bl"></div>
+              <div class="telemetry-panel__corner br"></div>
+
+              <div class="focus-header">
+                <div class="focus-title-group">
+                  <span class="focus-eyebrow font-mono">FOCUSED UNIT TELEMETRY</span>
+                  <h3 class="focus-title font-display" id="focus-train-id">TRN-082</h3>
+                  <div class="focus-line-badge font-mono" id="focus-train-line">
+                    Line A • Express
+                  </div>
+                </div>
+                <div class="focus-speed-group">
+                  <div class="speed-value font-display">
+                    <span id="focus-speed">92</span><span class="speed-unit">KM/H</span>
+                  </div>
+                  <span class="speed-label font-mono">CRUISE VELOCITY</span>
+                </div>
+              </div>
+
+              <div class="metrics-grid">
+                <div class="metric-tile">
+                  <span class="metric-label font-mono">CABIN CAPACITY</span>
+                  <div class="metric-value-row">
+                    <span class="metric-value font-display" id="focus-capacity">92</span>
+                    <span class="metric-unit">%</span>
+                  </div>
+                  <div class="metric-progress-track">
+                    <div class="metric-progress-fill" id="focus-capacity-bar" style="width: 92%"></div>
+                  </div>
+                </div>
+                <div class="metric-tile">
+                  <span class="metric-label font-mono">NEXT STATION ETA</span>
+                  <div class="metric-value-row">
+                    <span class="metric-value font-display" id="focus-eta">03:42</span>
+                    <span class="metric-unit">MIN</span>
+                  </div>
+                  <span class="metric-subtext font-mono" id="focus-dest-text">NEO-CENTRAL STATION</span>
+                </div>
+                <div class="metric-tile">
+                  <span class="metric-label font-mono">ENERGY LOAD</span>
+                  <div class="metric-value-row">
+                    <span class="metric-value font-display" id="focus-power">412</span>
+                    <span class="metric-unit">kW</span>
+                  </div>
+                  <span class="metric-subtext font-mono active-status">REGENERATIVE ACTIVE</span>
+                </div>
+              </div>
+
+              <div class="carriages">
+                <div class="carriages__head">
+                  <span class="carriages__title font-mono">CARRIAGE LOAD &middot; LIVE</span>
+                  <span class="carriages__advice" id="carriage-advice">&nbsp;</span>
+                </div>
+
+                <div class="carriages__train" id="carriage-train" role="group"
+                  aria-label="Live carriage occupancy. Select a carriage for details."></div>
+
+                <div class="carriages__detail" id="carriage-detail" aria-live="polite">
+                  <span class="carriages__detail-empty">Select a carriage</span>
+                </div>
+
+                <div class="carriages__scale font-mono" aria-hidden="true">
+                  <span class="carriages__scale-item"><i class="carriages__swatch is-low"></i>Space</span>
+                  <span class="carriages__scale-item"><i class="carriages__swatch is-mid"></i>Filling</span>
+                  <span class="carriages__scale-item"><i class="carriages__swatch is-high"></i>Crowded</span>
+                  <span class="carriages__scale-item"><svg viewBox="0 0 24 24" width="11" height="11" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="4" r="2" />
+                      <path d="M12 6v6m0 0l-3 6m3-6l3 6M7 9h10" />
+                    </svg>Step-free</span>
+                </div>
+              </div>
+
+              <div class="track-visualizer">
+                <div class="track-header font-mono">
+                  <span id="focus-origin">GRAND PLAZA</span>
+                  <span class="track-status-text">IN TRANSIT</span>
+                  <span id="focus-destination">NEO-CENTRAL</span>
+                </div>
+                <div class="track-bar-container">
+                  <div class="track-bar-bg"></div>
+                  <div class="track-bar-fill" id="focus-track-progress" style="width: 65%"></div>
+                  <div class="track-station-node start active"></div>
+                  <div class="track-train-indicator" style="left: 65%">
+                    <div class="track-train-indicator__bubble font-mono" id="indicator-train-id">
+                      TRN-082
+                    </div>
+                    <div class="track-train-indicator__arrow"></div>
+                  </div>
+                  <div class="track-station-node end"></div>
+                </div>
+              </div>
+
+              <div class="camera-feed-panel">
+                <div class="camera-scrim-lines"></div>
+                <div class="camera-glow-effect"></div>
+                <div class="camera-feed-img" style="
+                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAUxjeoTR_qjqUDpTlHZHOj7Oa1OWMF0AxNPxnwTGpFTaZdEuuhFhEDBWc1q2P781PCEoHHvIK9h_HAvtoBO5Othmb45lW89mafUkl4zFzbViKlSE4Cr8uIXd3VK4zA2ezgsab4oFCHuX6pFJM5Pn9s6-WTpWpVnH69V5wmMN7IMn8QRhia7ZvfINViQ1vEc1TQbA95FS6Q8bXNd3IxHWWIGFdgoKrr2xNKM9RclLNUtv7L327n6SjnydeoYmxgL0rvm_2lWwqctMh0&quot;);
+                    "></div>
+                <div class="camera-hud-top font-mono">
+                  <span class="rec-dot"></span>
+                  <span>LIVE FEED: CABIN-04</span>
+                </div>
+                <div class="camera-hud-bottom font-mono">
+                  <span>CAM_UID: 98-XQ-221 // ENCRYPTION: AES-256</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="station-data" id="station-data">
+          <div class="station-data__header">
+            <h3 class="h3">Active Route Progress</h3>
+            <span class="station-data__line font-mono" id="route-line-name">LINE A • PINK LINE</span>
+          </div>
+
+          <div class="active-route-panel" data-status="on-time" id="active-route-panel">
+            <div class="active-route-panel__corner tl"></div>
+            <div class="active-route-panel__corner tr"></div>
+            <div class="active-route-panel__corner bl"></div>
+            <div class="active-route-panel__corner br"></div>
+
+            <div class="active-route-header">
+              <div class="active-route-train-info">
+                <span class="active-route-id font-mono" id="route-train-id">TRN-082</span>
+                <span class="active-route-status on-time" id="route-train-status">ON TIME</span>
+              </div>
+              <div class="active-route-eta font-mono" id="route-train-eta">ETA: 03:42 MIN</div>
+            </div>
+
+            <div class="pink-line-scroll-container">
+              <div class="pink-line-track-wrapper">
+                <div class="pink-line-track" id="pink-line-track-nodes">
+                  <button type="button" class="pink-station visited" data-station="Majlis Park">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">MAJLIS PARK</span>
+                  </button>
+
+                  <div class="pink-line-segment filled"></div>
+
+                  <button type="button" class="pink-station visited" data-station="Azadpur">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">AZADPUR</span>
+                  </button>
+
+                  <div class="pink-line-segment filled"></div>
+
+                  <button type="button" class="pink-station visited current" data-station="Netaji Subash Place">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">NETAJI SUBASH</span>
+                  </button>
+
+                  <div class="pink-line-segment"></div>
+
+                  <button type="button" class="pink-station" data-station="Rajouri Garden">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">RAJOURI GDN</span>
+                  </button>
+
+                  <div class="pink-line-segment"></div>
+
+                  <button type="button" class="pink-station" data-station="South Campus">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">SOUTH CAMPUS</span>
+                  </button>
+
+                  <div class="pink-line-segment"></div>
+
+                  <button type="button" class="pink-station" data-station="INA">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">INA</span>
+                  </button>
+
+                  <div class="pink-line-segment"></div>
+
+                  <button type="button" class="pink-station" data-station="Lajpat Nagar">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">LAJPAT NGR</span>
+                  </button>
+
+                  <div class="pink-line-segment"></div>
+
+                  <button type="button" class="pink-station" data-station="Mayur Vihar-I">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">MAYUR VIHAR-I</span>
+                  </button>
+
+                  <div class="pink-line-segment"></div>
+
+                  <button type="button" class="pink-station" data-station="Anand Vihar">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">ANAND VIHAR</span>
+                  </button>
+
+                  <div class="pink-line-segment"></div>
+
+                  <button type="button" class="pink-station" data-station="Karkarduma">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">KARKARDUMA</span>
+                  </button>
+
+                  <div class="pink-line-segment"></div>
+
+                  <button type="button" class="pink-station" data-station="Welcome">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">WELCOME</span>
+                  </button>
+
+                  <div class="pink-line-segment"></div>
+
+                  <button type="button" class="pink-station" data-station="Shiv Vihar">
+                    <div class="pink-station__node-wrap">
+                      <div class="pink-station__node double-circle">
+                        <span class="inner-dot"></span>
+                      </div>
+                    </div>
+                    <span class="pink-station__label font-mono">SHIV VIHAR</span>
+                  </button>
+                </div>
+
+                <div class="pink-progress-line-container">
+                  <div class="pink-progress-fill" id="pink-progress-fill" style="width: 25%"></div>
+                  <div class="pink-progress-marker" id="pink-progress-marker" style="left: 25%">
+                    <div class="pink-progress-marker__pulse"></div>
+                    <span class="pink-progress-marker__text font-mono" id="pink-marker-train-id">TRN-082</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="active-route-footer">
+              <div class="route-footer-item">
+                <span class="font-mono">CURRENT STATUS</span>
+                <strong id="route-footer-status">IN TRANSIT: AZADPUR → NETAJI SUBASH</strong>
+              </div>
+              <div class="route-footer-item">
+                <span class="font-mono">VELOCITY</span>
+                <strong id="route-footer-speed">92 KM/H</strong>
+              </div>
+              <div class="route-footer-item">
+                <span class="font-mono">POWER LOAD</span>
+                <strong id="route-footer-power">412 kW</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="about" aria-hidden="true"></div>
+
+    <section class="block builders" id="builders" data-grid-lines="builders">
+      <div class="container layout-12 builders__grid">
+        <header class="block__head builders__head">
+          <h2 class="h2 reveal">
+            We're designers.<br /><em class="h2__keep">We shape the flow of the city.</em>
+          </h2>
+        </header>
+        <div class="builders__list">
+          <article class="builder">
+            <div class="builder__row reveal">
+              <span class="builder__brand" style="
+                    font-family: var(--chip);
+                    font-size: 14px;
+                    letter-spacing: 0.12em;
+                    font-weight: 400;
+                    color: var(--accent-text);
+                    margin-left: 20px;
+                  ">AETHER DYNAMICS</span>
+              <ul class="builder__col builder__col--a">
+                <li>Operates Sky District Altitude-Zero flight lines</li>
+                <li>Engineered high-pressure carbon-mesh sky cabins</li>
+                <li>Harnesses high-altitude wind currents for node power</li>
+              </ul>
+              <ul class="builder__col builder__col--b">
+                <li>Built 4,200 km of high-altitude magnetic monorails</li>
+                <li>Maintains cloud-boarding docking gates</li>
+                <li>Achieved zero-impact skyway corridors</li>
+              </ul>
+            </div>
+          </article>
+          <article class="builder">
+            <div class="builder__row reveal">
+              <span class="builder__brand" style="
+                    font-family: var(--chip);
+                    font-size: 14px;
+                    letter-spacing: 0.12em;
+                    font-weight: 400;
+                    color: var(--accent-text);
+                    margin-left: 20px;
+                  ">NAUTILUS SYSTEMS</span>
+              <ul class="builder__col builder__col--a">
+                <li>Constructed deep sub-surface ocean tubes</li>
+                <li>Deploys organic bioluminescent light channels</li>
+                <li>Reinforced glass tubes withstand abyssal water pressures</li>
+              </ul>
+              <ul class="builder__col builder__col--b">
+                <li>Operates underwater transit capsules for 10M+ daily commuters</li>
+                <li>Integrates thermal current turbines for self-power</li>
+                <li>Seismic safety rating exceeds standard levels</li>
+              </ul>
+            </div>
+          </article>
+          <article class="builder">
+            <div class="builder__row reveal">
+              <span class="builder__brand" style="
+                    font-family: var(--chip);
+                    font-size: 14px;
+                    letter-spacing: 0.12em;
+                    font-weight: 400;
+                    color: var(--accent-text);
+                    margin-left: 20px;
+                  ">CORE INTELLIGENCE</span>
+              <ul class="builder__col builder__col--a">
+                <li>Calculates optimal passenger routing in real-time</li>
+                <li>Monitors city respiration dynamics via neural nets</li>
+              </ul>
+              <ul class="builder__col builder__col--b">
+                <li>Reduces average commuter wait times to under 12 seconds</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene space" id="space" data-grid-lines="edge">
+      <div class="scene__media">
+        <video class="scene__bg" id="space-video" autoplay loop muted playsinline
+          style="object-fit: cover; width: 100%; height: 100%; filter: brightness(0.35)">
+          <source src="assets/metrotrain-seats.mp4" type="video/mp4" />
+        </video>
+        <script>
+          try {
+            document.getElementById("space-video").playbackRate = 0.4;
+          } catch (e) { }
+        </script>
+        <div class="scene__scrim" style="background: rgba(0, 0, 0, 0.45); position: absolute; inset: 0; z-index: 1"
+          aria-hidden="true"></div>
+        <div class="space__sun-glow" aria-hidden="true"></div>
+        <div class="scene__scrim scene__scrim--space" aria-hidden="true"></div>
+        <div class="scene__scrim scene__scrim--bottom" aria-hidden="true"></div>
+      </div>
+      <div class="container layout-12 scene__content space__content">
+        <div class="space__lead reveal">
+          <div class="space__copy">
+            <p class="kicker">Integrated transit</p>
+            <h2 class="h2">
+              Sub-surface & Elevated Rail: The only scalable solution for megacities
+            </h2>
+          </div>
+        </div>
+        <div class="compare reveal">
+          <div class="compare__col">
+            <h3>Legacy Surface Transport</h3>
+            <ul>
+              <li>Gridlock congestion</li>
+              <li>High emission rates</li>
+              <li>Weather dependencies</li>
+              <li>Right-of-way constraints</li>
+              <li>Road maintenance</li>
+              <li>Manual routing delay</li>
+            </ul>
+          </div>
+          <div class="compare__col compare__col--win">
+            <h3>MetroFab Channels</h3>
+            <ul>
+              <li>Autonomous speed corridors</li>
+              <li>100% kinetic energy recovery</li>
+              <li>Pressurized all-weather safety</li>
+              <li>Algorithmic route branching</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block output" id="output" data-grid-lines="edge">
+      <div class="container">
+        <header class="block__head">
+          <h2 class="h2 reveal">Throughput at continental scale</h2>
+        </header>
+        <div class="osc">
+          <div class="osc-shell">
+            <div class="osc-sticky">
+              <div class="osc-media">
+                <video class="osc__vid" muted playsinline preload="none"
+                  aria-label="Futuristic train travel telemetry scrubbed by scroll: departing Sector 9, traversing abyssal ocean tubes, and docking at the central terminal">
+                  <source src="assets/train_video.mp4" type="video/mp4" />
+                </video>
+                <div class="osc-overlay" aria-hidden="true">
+                  <figure class="osc-cap osc-cap--gf">
+                    <span class="osc-cap__n">SECTOR 09</span>
+                    <span class="osc-cap__l">Transit Artery Departure Point</span>
+                    <span class="osc-cap__line"></span>
+                  </figure>
+                  <figure class="osc-cap osc-cap--tf">
+                    <span class="osc-cap__n">ABYSSAL CORRIDOR</span>
+                    <span class="osc-cap__l">Sub-surface Pressurized Tubes</span>
+                    <span class="osc-cap__line"></span>
+                  </figure>
+                  <div class="osc-compare">
+                    <div class="osc-stat osc-stat--hi">
+                      <span class="osc-stat__l">Train Velocity</span>
+                      <span class="osc-stat__n">240 km/h</span>
+                    </div>
+                    <span class="osc-compare__div"></span>
+                    <div class="osc-stat osc-stat--us">
+                      <span class="osc-stat__l">System Core Load</span>
+                      <span class="osc-stat__n">Optimal (98.4%)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene mass" id="mass">
+      <div class="scene__media">
+        <img class="scene__bg" src="assets/metrotrain-final.jpg" alt="" loading="lazy"
+          style="filter: brightness(0.4)" />
+        <div class="scene__scrim" style="background: rgba(0, 0, 0, 0.45); position: absolute; inset: 0; z-index: 1"
+          aria-hidden="true"></div>
+        <div class="scene__scrim mass__scrim-top" aria-hidden="true"></div>
+        <div class="scene__scrim scene__scrim--left"></div>
+        <div class="scene__scrim scene__scrim--bottom" aria-hidden="true"></div>
+      </div>
+      <div class="container scene__content">
+        <h2 class="h2 reveal">The next horizon: high-speed hyperloop vacuum tunnels</h2>
+        <div class="scene__actions reveal">
+          <button class="link-cta link-cta--fill" type="button" data-video-open="mass-video">
+            <span class="cta__full">Watch Simulation</span><span class="cta__mob">Watch</span>
+          </button>
+        </div>
+      </div>
+      <div class="mass__outro" aria-hidden="true"></div>
+    </section>
+
+    <div class="mass-footer-blend" aria-hidden="true"></div>
+  </main>
+
+  <footer class="footer" id="join">
+    <canvas class="footer__grid-fx" aria-hidden="true"></canvas>
+    <div class="footer__fade" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer__cta">
+        <h2 class="footer__head reveal">Join the future of<br />urban transit.</h2>
+        <div class="footer__actions reveal">
+          <a class="link-cta link-cta--fill" href="mailto:contact@metrofab.org">Contact Horizon Transit</a>
+        </div>
+      </div>
+      <div class="footer__meta" aria-hidden="true"></div>
+      <div class="footer__base">
+        <span class="footer__legal">
+          <span class="footer__credit">Designed and built for Horizon Systems &copy; 2026. All rights reserved.</span>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="vplayer" id="mass-video" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-label="Hyperloop vacuum tunnel film">
+    <div class="vplayer__veil" data-vplayer-close aria-hidden="true"></div>
+    <div class="vplayer__shell">
+      <div class="vplayer__panel">
+        <div class="vplayer__frame">
+          <video class="vplayer__video" playsinline preload="none">
+            <source src="assets/train_video.mp4" type="video/mp4" />
+          </video>
+          <div class="vplayer__chrome">
+            <button class="vplayer__close" type="button" aria-label="Close video" data-vplayer-close>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" />
+              </svg>
+            </button>
+            <div class="vplayer__dock">
+              <div class="vplayer__bar">
+                <button class="vplayer__btn vplayer__toggle" type="button" aria-label="Play">
+                  <span class="vplayer__toggle-icons" aria-hidden="true">
+                    <svg class="vplayer__i-play" viewBox="0 0 24 24">
+                      <path d="M8 6.2v11.6L18.2 12 8 6.2z" fill="currentColor" />
+                    </svg>
+                    <svg class="vplayer__i-pause" viewBox="0 0 24 24">
+                      <path d="M7.5 6.5h3.25v11H7.5zm6 0h3.25v11h-3.25z" fill="currentColor" />
+                    </svg>
+                  </span>
+                </button>
+                <div class="vplayer__progress">
+                  <div class="vplayer__scrub" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100"
+                    aria-valuenow="0" tabindex="0">
+                    <div class="vplayer__track">
+                      <div class="vplayer__track-line">
+                        <div class="vplayer__rail" aria-hidden="true"></div>
+                        <div class="vplayer__buffer" aria-hidden="true"></div>
+                        <div class="vplayer__played" aria-hidden="true"></div>
+                      </div>
+                      <div class="vplayer__head-pin" aria-hidden="true">
+                        <span class="vplayer__head"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="vplayer__time"><span class="vplayer__cur">0:00</span><span class="vplayer__sep"> /
+                    </span><span class="vplayer__dur">0:00</span></span>
+                </div>
+                <div class="vplayer__audio">
+                  <button class="vplayer__btn vplayer__mute" type="button" aria-label="Mute">
+                    <span class="vplayer__mute-icons" aria-hidden="true">
+                      <svg class="vplayer__i-vol" viewBox="0 0 24 24">
+                        <path d="M4.75 9.5v5h4l4.75 3.8V5.7L8.75 9.5h-4z" fill="currentColor" />
+                        <path d="M15.5 8.8a4.25 4.25 0 0 1 0 6.4" fill="none" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" />
+                      </svg>
+                      <svg class="vplayer__i-muted" viewBox="0 0 24 24">
+                        <path d="M4.75 9.5v5h4l4.75 3.8V5.7L8.75 9.5h-4z" fill="currentColor" />
+                        <path d="M15.2 9.8l5 5M20.2 9.8l-5 5" fill="none" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="vplayer__vol" role="slider" aria-label="Volume" aria-valuemin="0" aria-valuemax="100"
+                    aria-valuenow="100" tabindex="0">
+                    <div class="vplayer__vol-track">
+                      <div class="vplayer__vol-line">
+                        <div class="vplayer__vol-rail" aria-hidden="true"></div>
+                        <div class="vplayer__vol-fill" aria-hidden="true"></div>
+                      </div>
+                      <div class="vplayer__vol-head-pin" aria-hidden="true">
+                        <span class="vplayer__vol-head"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="vplayer__btn vplayer__fs" type="button" aria-label="Fullscreen">
+                  <span class="vplayer__fs-icons" aria-hidden="true">
+                    <svg class="vplayer__i-fs-enter" viewBox="0 0 24 24">
+                      <path d="M5.5 9.5V5.5h4M14.5 5.5h4v4M18.5 14.5v4h-4M9.5 18.5h-4v-4" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <svg class="vplayer__i-fs-exit" viewBox="0 0 24 24">
+                      <path d="M9 9.5H5.5V6M15 5.5h3.5V9M18.5 15v3.5H15M9 18.5H5.5V15" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="transit-modal" id="transit-feature-modal" role="dialog" aria-modal="true"
+    aria-labelledby="modal-feature-title" aria-hidden="true">
+    <div class="transit-modal__backdrop"></div>
+    <div class="transit-modal__wrapper">
+      <div class="transit-modal__corner tl"></div>
+      <div class="transit-modal__corner tr"></div>
+      <div class="transit-modal__corner bl"></div>
+      <div class="transit-modal__corner br"></div>
+
+      <div class="transit-modal__header">
+        <h3 class="transit-modal__title font-display" id="modal-feature-title">Feature Title</h3>
+        <button class="transit-modal__close-btn" type="button" id="modal-close-trigger" aria-label="Close dialog">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="transit-modal__body" id="modal-feature-body"></div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+
+<script>
+window.addEventListener('load', function () {
+  document.querySelectorAll('.reveal, .h2, .statement').forEach(function (e) { e.classList.add('in-view'); });
+  var p = new URLSearchParams(location.search);
+  var t = p.get('sec');
+  if (t) {
+    var el = document.getElementById(t);
+    if (el) window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset);
+  }
+});
+</script>
+</body>
+
+</html>
